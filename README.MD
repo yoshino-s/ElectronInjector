@@ -14,7 +14,7 @@ Another injector on encrypted electron app.
 - Support Some Software Windows And Linux
 - Verified On Some Software
   - Linux: <!-- Linux-Begin -->1.0.0, 1.0.3, 1.1.3, 1.1.4, 1.1.5, 1.2.3, 1.2.4<!-- Linux-End --><!-- Linux-End --><!-- Linux-End -->
-  - Windows: <!-- Windows-Begin -->1.1.4, 1.1.5, 1.2.3, 1.2.4<!-- Windows-End --><!-- Windows-End --><!-- Windows-End --><!-- Windows-End --><!-- Windows-End -->
+  - Windows: <!-- Windows-Begin -->1.1.4, 1.1.5, 1.2.3, 1.2.4<!-- Windows-End -->
 
 ## Usage
 
