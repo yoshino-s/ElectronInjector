@@ -1,5 +1,5 @@
 # Electron Injector
-[![test-linux](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/test-linux.yml/badge.svg)](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/test-linux.yml) [![test-windows](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/test-windows.yml/badge.svg)](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/test-windows.yml) [![CodeQL](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Yoshino-s/ElectronInjector/actions/workflows/codeql-analysis.yml)
 
 
 Another injector on encrypted electron app.
