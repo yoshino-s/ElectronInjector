@@ -1,8 +1,10 @@
+from functools import partial
 import click
 import os
 import shutil
+import re
 
-inject_old = br"function validateString (value, name) { if (typeof value !== 'string') throw new TypeError('The \"' + name + '\" argument must be of type string, Received type ' + typeof value); }"
+inject_old = re.compile(br"function validateString[^}]+}")
 inject_new = br"function validateString(){};"
 
 
@@ -22,19 +24,20 @@ def backup_prog(prog: str):
         shutil.copyfile(prog, prog + ".bak")
 
 
-def make_inject(path: str):
+def make_inject(path: str, matchobj: re.Match):
     inj = f"mod.require('{os.path.basename(path)}');"
     inj = inject_new + inj.encode()
-    if len(inj) > len(inject_old):
+    size = matchobj.end() - matchobj.start()
+    if len(inj) > size:
         click.echo("Too long inject", err=True)
         exit(2)
-    inj = inj.ljust(len(inject_old), b" ")
+    inj = inj.ljust(size, b" ")
     return inj
 
 
 @click.command()
 @click.option("-I", "--inject", default="inject/crack.js", help="Inject file", type=click.Path(exists=True))
-@click.option("-B", "--from-bak", default=True, help="Use bak file as raw program", is_flag=True)
+@click.option("-B", "--from-bak", default=False, help="Use bak file as raw program", is_flag=True)
 @click.argument("prog", default="main.node")
 def main(prog: str, inject: str, from_bak: bool):
     if from_bak:
@@ -49,7 +52,7 @@ def main(prog: str, inject: str, from_bak: bool):
     with open(_prog, "rb") as f:
         node = f.read()
 
-    if not inject_old in node:
+    if not inject_old.search(node):
         click.echo(
             "Cannot find injection point in program file: {}".format(prog), err=True)
         exit(2)
@@ -62,7 +65,7 @@ def main(prog: str, inject: str, from_bak: bool):
 
     click.echo(f"Injecting into {prog}")
     with open(prog, "wb") as f:
-        f.write(node.replace(inject_old, make_inject(target)))
+        f.write(inject_old.sub(partial(make_inject, target), node))
     click.echo("Done")
 
 
