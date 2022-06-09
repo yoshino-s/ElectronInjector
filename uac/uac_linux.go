@@ -1,0 +1,5 @@
+package uac
+
+func RunMeElevated() {
+	//
+}
