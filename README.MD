@@ -10,17 +10,16 @@ Another injector on encrypted electron app.
 
 ## Feature
 
-- Supports Some Software Version 1.0.0+ (At least for now.)
 - Support Some Software Windows And Linux
-- Verified On Some Software
-  - Linux: <!-- Linux-Begin -->1.0.0, 1.0.3, 1.1.3, 1.1.4, 1.1.5, 1.2.3, 1.2.4<!-- Linux-End -->
-  - Windows: <!-- Windows-Begin -->1.1.4, 1.1.5, 1.2.3, 1.2.4<!-- Windows-End -->
+- Verified On Some Software v1.0.0 to v1.3.6
 
 ## Usage
 
 Download the latest version from release page.
 
 Call it by cmd or just drag the `main.node` onto it.
+
+![example](./example.gif)
 
 ```
 Another injector on encrypted electron app
