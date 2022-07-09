@@ -11,7 +11,7 @@ Another injector on encrypted electron app.
 ## Feature
 
 - Support Some Software Windows And Linux
-- Verified On Some Software v1.0.0 to v1.3.6
+- Verified On Some Software v1.0.0 to v1.3.8
 
 ## Usage
 
